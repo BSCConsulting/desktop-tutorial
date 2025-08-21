@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Beauty Studio - India's Curated Beauty & Cosmetics Store</title>
+    <meta name="description" content="Aura Beauty Studio - Premium beauty and cosmetic products delivered across India. Shop skincare, haircare, makeup and wellness products from Hyderabad, Bangalore, Vijayawada, and Dehradun.">
+    <meta name="keywords" content="beauty products, cosmetics, skincare, haircare, makeup, India, Hyderabad, Bangalore, Vijayawada, Dehradun">
+    <meta name="author" content="Aura Beauty Studio">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.pexels.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Aura Beauty Studio - India's Curated Beauty Store">
+    <meta property="og:description" content="Premium beauty and cosmetic products delivered across India">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aurabeautystudio.in">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "Aura Beauty Studio",
+        "description": "India's curated beauty and cosmetics store",
+        "url": "https://www.aurabeautystudio.in",
+        "telephone": "+918008893024",
+        "email": "aurabeautystudio96@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "IN"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Aura Beauty Studio</h1>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+                    </div>
+                    
+                    <button class="cart-btn" onclick="toggleCart()" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Mobile Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search products..." autocomplete="off">
+                </div>
+                <button class="mobile-cart-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart (<span id="mobileCartCount">0</span>)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Welcome to <span class="gradient-text">Aura Beauty Studio</span></h2>
+                <p>India's curated destination for premium beauty and cosmetic products. Shop skincare, haircare, and grooming essentials—delivered nationwide from Bangalore, Hyderabad, Vijayawada, and Dehradun.</p>
+                <div class="locations">
+                    <div class="location-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bangalore</span>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Hyderabad</span>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Vijayawada</span>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dehradun</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h3>Featured Categories</h3>
+            <div class="category-grid">
+                <button class="category-btn active" onclick="filterProducts('All')">
+                    <div class="category-icon">🛍️</div>
+                    <div class="category-name">All Products</div>
+                </button>
+                <button class="category-btn" onclick="filterProducts('Skincare')">
+                    <div class="category-icon">✨</div>
+                    <div class="category-name">Skincare</div>
+                </button>
+                <button class="category-btn" onclick="filterProducts('Haircare')">
+                    <div class="category-icon">💇</div>
+                    <div class="category-name">Haircare</div>
+                </button>
+                <button class="category-btn" onclick="filterProducts('Color Cosmetics')">
+                    <div class="category-icon">💄</div>
+                    <div class="category-name">Color Cosmetics</div>
+                </button>
+                <button class="category-btn" onclick="filterProducts('Bodycare')">
+                    <div class="category-icon">🧴</div>
+                    <div class="category-name">Bodycare</div>
+                </button>
+                <button class="category-btn" onclick="filterProducts('Men\'s Grooming')">
+                    <div class="category-icon">🧔</div>
+                    <div class="category-name">Men's Grooming</div>
+                </button>
+                <button class="category-btn" onclick="filterProducts('Wellness')">
+                    <div class="category-icon">🌿</div>
+                    <div class="category-name">Wellness</div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products">
+        <div class="container">
+            <h3>Shop Our Bestsellers</h3>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Shop With Us -->
+    <section class="features">
+        <div class="container">
+            <h3>Why Shop with Aura Beauty Studio?</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Pan-India Delivery</h4>
+                    <p>Fast, reliable shipping from Bangalore, Hyderabad, Vijayawada, and Dehradun.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Curated Selection</h4>
+                    <p>Only the best, dermatologist-tested products.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h4>Secure Payments</h4>
+                    <p>Multiple payment options, including UPI, cards, and cash on delivery.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>Customer Support</h4>
+                    <p>Friendly support team available via WhatsApp, email, and phone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h3>About Aura Beauty Studio</h3>
+                <p>Aura Beauty Studio is India's trusted beauty and cosmetics brand, offering a handpicked range of skincare, haircare, and grooming products. Our mission: empower every beauty lover in India to look and feel their best, every day.</p>
+                <p class="cta-text">Ready to glow? Shop now and experience beauty, delivered!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-header">
+                <h3>✨ Get in Touch with Us ✨</h3>
+                <p class="contact-subtitle">Have questions about our products? Need beauty advice? We're here to help!</p>
+            </div>
+            
+            <div class="contact-form-container">
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <div class="form-icon">💄</div>
+                        <h4>Send us a Message</h4>
+                        <p>We'll get back to you within 2-4 hours!</p>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="fullName" name="fullName" placeholder="Your Full Name" required autocomplete="name">
+                                <label for="fullName">Full Name *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required autocomplete="email">
+                                <label for="email">Email Address *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone input-icon"></i>
+                                <input type="tel" id="mobile" name="mobile" placeholder="+91 9876543210" required autocomplete="tel">
+                                <label for="mobile">Mobile Number *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="select-wrapper">
+                                <i class="fas fa-tag input-icon"></i>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Choose a topic...</option>
+                                    <option value="product-inquiry">💄 Product Inquiry</option>
+                                    <option value="beauty-advice">✨ Beauty Advice</option>
+                                    <option value="order-support">📦 Order Support</option>
+                                    <option value="partnership">🤝 Partnership/Business</option>
+                                    <option value="feedback">💝 Feedback</option>
+                                    <option value="other">💬 Other</option>
+                                </select>
+                                <label for="subject">Subject *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="textarea-wrapper">
+                                <i class="fas fa-comment input-icon"></i>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us how we can help you..." required></textarea>
+                                <label for="message">Message *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Message</span>
+                                <div class="btn-shine"></div>
+                            </button>
+                            <button type="button" class="whatsapp-btn" onclick="openWhatsApp()">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>Quick WhatsApp</span>
+                                <div class="btn-shine"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-card-header">
+                        <div class="contact-card-icon">📞</div>
+                        <h4>Quick Contact</h4>
+                    </div>
+                    
+                    <div class="quick-contact-item">
+                        <div class="contact-icon whatsapp-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <p>Call us @ +91 8008893024</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-contact-item">
+                        <div class="contact-icon email-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <p>aurabeautystudio96@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-contact-item">
+                        <div class="contact-icon time-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <strong>Response Time</strong>
+                            <p>Within 2-4 hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card-footer">
+                        <p>💝 We're here to make you beautiful!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p><strong>Director:</strong> Ramu Munugoti</p>
+                        
+                        <div class="office-info">
+                            <p><strong>Head Office:</strong> Hyderabad, Telangana</p>
+                            <p><strong>Regional Offices:</strong> Dehradun, Bangalore, Vijayawada</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+918008893024">+91 8008893024</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:aurabeautystudio96@gmail.com">aurabeautystudio96@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Our Locations</h4>
+                    <div class="locations-list">
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Hyderabad (Head Office)</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dehradun</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Vijayawada</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com/profile.php?id=61577887093893" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://instagram.com/aurabeautystudio9/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://wa.me/918008893024?text=Hi!%20I'm%20interested%20in%20your%20beauty%20products.%20Can%20you%20help%20me?" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="whatsapp-highlight"
+                           onclick="gtag('event', 'whatsapp_click', {'event_category': 'engagement'});">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>© 2024 Aura Beauty Studio. All rights reserved @ Bloom Strategic Consulting</p>
+                    <p>It is a product of Bloom Strategic Consulting (BSC)</p>
+                    <p>Crafted with 💖 for beauty lovers across India.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-overlay" onclick="toggleCart()"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-cart" onclick="toggleCart()" aria-label="Close Cart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total: ₹<span id="cartTotal">0</span></span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()" role="button" tabindex="0" aria-label="Chat on WhatsApp">
+        <div class="whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="whatsapp-text">Chat with us!</div>
+        <div class="whatsapp-pulse"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    
+    <!-- Error handling for missing scripts -->
+    <script>
+        window.addEventListener('error', function(e) {
+            console.error('Script error:', e.error);
+        });
+    </script>
+</body>
+</html>

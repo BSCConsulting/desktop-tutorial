@@ -1,0 +1,16 @@
+{
+  "name": "aura-beauty-studio",
+  "version": "1.0.0",
+  "description": "Aura Beauty Studio - India's Curated Beauty & Cosmetics Store",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "start": "live-server --port=3000 --open=/index.html"
+  },
+  "keywords": ["beauty", "cosmetics", "skincare", "haircare", "india"],
+  "author": "Bloom Strategic Consulting",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
